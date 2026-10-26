@@ -20,6 +20,10 @@ Hovering a point shows the forecast used and when it was issued:
 
 For each target hour, the buyer decides the day before at a cutoff time (09:00 London by default, adjustable in the UI). The app uses the latest forecast published at or before that cutoff. Taking the newest forecast overall would use information the buyer didn't have yet, which flatters the forecasts. The logic is in `backend/app/selection.py`.
 
+![Architecture in three layers: a data ingestion layer downloads Elexon data once into a committed snapshot, the FastAPI service on Render reads it, and the React app on Vercel calls the API](docs/architecture.svg)
+
+The Elexon data is downloaded once and committed as parquet files, so at runtime the API only reads that snapshot.
+
 The brief leaves some things open, so I made these choices:
 
 - Decision time is 09:00 London on the day before. It's a control, not a hardcoded value.
@@ -38,6 +42,13 @@ Bias is the average signed error. MAE is the average size of a miss. RMSE is sim
 Over 2 Jan to 1 Feb with the 09:00 cutoff: bias +1,746 MW, MAE 2,022 MW, RMSE 2,497 MW, MAPE 21.9%, P90 4,154 MW. The forecast runs high in every week of the month, so a buyer trusting it blindly would tend to under-buy backup power.
 
 I can't fully explain the bias. It isn't a timestamp shift (I tried moving the actuals by up to 3 hours). Part of it may be a definitions gap, for example if `FUELHH` only counts metered wind, but I haven't checked. Error by forecast age also isn't monotonic and I don't know why. And it's only one month of data.
+
+## Folders
+
+- `backend/`: the FastAPI app (`app/`), the data snapshot (`data/`), the download script (`scripts/`) and the tests (`tests/`)
+- `frontend/`: the React app (`src/`)
+- `docs/`: the diagram and screenshots
+- Root: the Compose file, the Render config and CI (`.github/workflows`)
 
 ## Run it
 
