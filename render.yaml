@@ -1,5 +1,6 @@
 # Render Blueprint: backend API only. The frontend deploys to Vercel (see frontend/vercel.json).
-# Render > New > Blueprint > pick this repo. Then set CORS_ORIGINS to the Vercel URL (see README).
+# Render > New > Blueprint > pick this repo. Then set CORS_ORIGINS to the exact Vercel origin,
+# e.g. https://your-app.vercel.app (https, no trailing slash, no path).
 services:
   - type: web
     name: uk-wind-forecast-api
