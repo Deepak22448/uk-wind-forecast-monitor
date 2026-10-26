@@ -1,0 +1,18 @@
+# One command for a reviewer: docker compose up --build  ->  http://localhost:8080
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000" # direct API access, e.g. http://localhost:8000/docs
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      retries: 10
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy

@@ -1,0 +1,13 @@
+# Render Blueprint: backend API only. The frontend deploys to Vercel (see frontend/vercel.json).
+# Render > New > Blueprint > pick this repo. Then set CORS_ORIGINS to the Vercel URL (see README).
+services:
+  - type: web
+    name: uk-wind-forecast-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free # free instances sleep when idle: first request after a pause takes ~30-60s
+    healthCheckPath: /health
+    envVars:
+      - key: CORS_ORIGINS
+        sync: false # comma-separated list, e.g. https://your-app.vercel.app
