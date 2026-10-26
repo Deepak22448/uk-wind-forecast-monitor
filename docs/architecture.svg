@@ -23,7 +23,7 @@
 <rect x="824" y="109" width="26" height="26" rx="6" fill="#ffffff"/><path transform="translate(829 114) scale(0.6667)" d="M16.922 0h2.623v18.104h-2.623zm-4.126 12.94h2.623v2.57h-2.623zm0-7.037h2.623v5.446h-2.623zm0 11.197h2.623v5.446h-2.623zM4.456 5.896h2.622V24H4.455zm4.213 2.559h2.623v2.57H8.67zm0 4.151h2.623v5.447H8.67zm0-11.187h2.623v5.446H8.67Z" fill="#150458"/>
 <rect x="602" y="168" width="244" height="60" rx="8" fill="#f6f9f9" stroke="#5fb9b0" stroke-width="1.5"/><text x="616" y="194" font-size="13" font-weight="600" fill="#0f172a">Routes</text><text x="616" y="214" font-size="12" fill="#475569">request validation and logging</text>
 <rect x="602" y="252" width="244" height="60" rx="8" fill="#f6f9f9" stroke="#5fb9b0" stroke-width="1.5"/><text x="616" y="278" font-size="13" font-weight="600" fill="#0f172a">Data access</text><text x="616" y="298" font-size="12" fill="#475569">loads and caches the snapshot</text>
-<rect x="602" y="336" width="244" height="60" rx="8" fill="#fbe9d3" stroke="#d9480f" stroke-width="2"/><text x="616" y="362" font-size="13" font-weight="600" fill="#0f172a">Forecast selection</text><text x="616" y="382" font-size="12" fill="#0f172a">latest forecast by the cutoff</text>
+<rect x="602" y="336" width="244" height="60" rx="8" fill="#f6f9f9" stroke="#5fb9b0" stroke-width="1.5"/><text x="616" y="362" font-size="13" font-weight="600" fill="#0f172a">Forecast selection</text><text x="616" y="382" font-size="12" fill="#475569">latest forecast by the cutoff</text>
 <rect x="602" y="420" width="244" height="60" rx="8" fill="#f6f9f9" stroke="#5fb9b0" stroke-width="1.5"/><text x="616" y="446" font-size="13" font-weight="600" fill="#0f172a">Comparison</text><text x="616" y="466" font-size="12" fill="#475569">matches forecasts to actuals</text>
 <rect x="602" y="504" width="244" height="60" rx="8" fill="#f6f9f9" stroke="#5fb9b0" stroke-width="1.5"/><text x="616" y="530" font-size="13" font-weight="600" fill="#0f172a">Metrics</text><text x="616" y="550" font-size="12" fill="#475569">bias, MAE, RMSE, MAPE, P90, P95</text>
 <line x1="724" y1="228" x2="724" y2="250" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
@@ -56,6 +56,4 @@
 <text x="74" y="672" font-size="12" fill="#475569">download, run once offline</text>
 <line x1="250" y1="668" x2="290" y2="668" stroke="#64748b" stroke-width="1.5"/>
 <text x="300" y="672" font-size="12" fill="#475569">at runtime</text>
-<rect x="400" y="660" width="18" height="16" rx="3" fill="#fbe9d3" stroke="#d9480f" stroke-width="2"/>
-<text x="428" y="672" font-size="12" fill="#475569">the core rule: use only forecasts published by the decision cutoff</text>
 </svg>
